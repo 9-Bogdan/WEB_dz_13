@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "part-two"
+version = "0.1.0"
+description = ""
+authors = ["9-Bogdan <127949078+9-Bogdan@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "part_two"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.6"
+pymongo = "^4.5.0"
+psycopg2 = "^2.9.9"
+django-environ = "^0.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
