@@ -11,7 +11,7 @@ from services.auth import auth_service
 from fastapi_limiter.depends import RateLimiter
 import cloudinary
 import cloudinary.uploader
-
+from conf.config import settings
 router = APIRouter(prefix='/users', tags=["users"])
 
 
@@ -30,9 +30,9 @@ async def read_users_me(current_user: User = Depends(auth_service.get_current_us
 async def update_avatar_user(file: UploadFile = File(), current_user: User = Depends(auth_service.get_current_user),
                              db: Session = Depends(get_db)):
     cloudinary.config(
-        cloud_name="dmybldclv",
-        api_key="592143484358843",
-        api_secret="YqKAI25KSkQ9UwyWxPn_gcwX-3A",
+        cloud_name=settings.cloudinary_name,
+        api_key=settings.cloudinary_api_key,
+        api_secret=settings.cloudinary_api_secret,
         secure=True
     )
 
